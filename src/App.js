@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route,BrowserRouter , Routes, Link} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
+import { People } from "./components/People";
+import { Home } from "./components/Home";
+import { Person } from "./components/Person";
 
-function App() {
+
+
+
+  const
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+    <BrowserRouter>
+      <header>
+        <ul>
+          <li>
+            <Link to={"/"}>
+            Home
+            </Link>
+
+          </li>
+          <li>
+            <Link to={"/people"}>
+            People
+
+            </Link>
+          </li>
+        </ul>
+
       </header>
-    </div>
+
+
+      <Routes>
+        <Route  path="/dashboard" element={<Home/>}/>
+        <Route exact path="/people/:id" element={<People />}/> 
+      </Routes>
+
+
+        <footer>
+          <p>
+            Vytvořil: Adam Tretera 
+          </p>
+        </footer>
+
+
+        
+    </BrowserRouter>
+
+  
+    </>
   );
 }
 
-export default App;
+
+export default App
